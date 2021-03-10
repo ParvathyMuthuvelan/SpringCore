@@ -1,0 +1,113 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans   
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<context:annotation-config />
+
+	<bean id="hello" class="com.beans.HelloWorld">
+
+	</bean>
+
+	<bean id="user" class="com.beans.User">
+		<property name="name" value="Sri" />
+		<property name="age" value="25" />
+		<property name="country" value="India" />
+	</bean>
+
+	<bean id="user1" class="com.beans.User">
+		<property name="name" value="Sai" />
+		<property name="age" value="23" />
+		<property name="country" value="India" />
+	</bean>
+	
+	<!-- constructor injection -->
+	<bean id="addressObj1" class="com.beans.Address">
+		<constructor-arg  value="First Street" />
+		<constructor-arg  value="Mumbai" />
+		<constructor-arg  value="603202" />
+	</bean>
+	
+<bean id="person1" class="com.beans.Person">
+		<constructor-arg  value="Sri" />
+		<constructor-arg  ref="addressObj1" />
+	</bean>
+
+	<!-- Inner bean setter injection -->
+	<bean id="addressObj" class="com.beans.Address">
+		<property name="street" value="Netaji Street" />
+		<property name="city" value="Chennai" />
+		<property name="pinCode" value="603102" />
+
+	</bean>
+
+	<bean id="person" class="com.beans.Person">
+		<property name="name" value="Sai" />
+		<property name="address" ref="addressObj" />
+	</bean>
+	<!-- p:schema -->
+	<bean id="employeeBean" class="com.beans.Employee" p:id="1234"
+		p:name="Daniel" />
+
+
+	<context:property-placeholder
+		location="classpath:patient_details.properties" />
+	<bean id="ps" class="com.service.PatientService" />
+
+	<bean id="p" class="com.beans.Patient">
+		<property name="pid" value="${pid}"></property>
+		<property name="pname" value="${pname}"></property>
+		<property name="disease" value="${disease}"></property>
+		<property name="gender" value="${gender}"></property>
+		<property name="admit_status" value="${admit_status}"></property>
+		<property name="age" value="${age}"></property>
+
+	</bean>
+
+	<!-- Collections -->
+	<bean id="shapeCollection" class="com.beans.ShapeCollection">
+		<property name="shapeOfList">
+			<list>
+				<value>Triangle</value>
+				<value>Circle</value>
+				<value>Square</value>
+				<value>Rectangle</value>
+			</list>
+		</property>
+		<property name="shapeOfSet">
+			<set>
+				<value>Triangle</value>
+				<value>Circle</value>
+				<value>Square</value>
+				<value>Rectangle</value>
+			</set>
+		</property>
+		<property name="shapeOfMap">
+			<map>
+				<entry key="1" value="Triangle"></entry>
+				<entry key="2" value="Circle"></entry>
+				<entry key="3" value="Square"></entry>
+				<entry key="4" value="Rectangle"></entry>
+			</map>
+		</property>
+
+	</bean>
+
+
+</beans>
+
+
+
+
+
+
+
+
+
+
+
