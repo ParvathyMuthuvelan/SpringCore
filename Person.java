@@ -1,40 +1,32 @@
-package com.beans;
-
+package com.annotation;
 
 
 public class Person {
 	private String name;
-	private Address address;
-	public Person() {}
-	
-	
-	public Person(String name, Address address) {
-		this.name = name;
-		this.address = address;
-	}
-
-
+	private int age;
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public Address getAddress() {
-		return address;
+	public int getAge() {
+		return age;
 	}
-
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setAge(int age) {
+		this.age = age;
 	}
-
 	@Override
 	public String toString() {
-		return String.format("Person [name=%s, address=%s]", name, address);
+		StringBuilder builder = new StringBuilder();
+		builder.append("Person [name=");
+		builder.append(name);
+		builder.append(", age=");
+		builder.append(age);
+		builder.append("]");
+		return builder.toString();
 	}
+	  
 
-	
-    
-
+	   
 }

@@ -1,8 +1,14 @@
-package com.beans;
+package com.annotation;
 
 public class HelloWorld {
-	void display()
-	{
-		System.out.println("Welcome to Spring");
-	}
+private String message;
+
+public String getMessage() {
+	return message;
+}
+
+public void setMessage(String message) {
+	this.message = message;
+}
+
 }
