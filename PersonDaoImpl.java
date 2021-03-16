@@ -10,7 +10,7 @@ import com.model.Person;
 @Repository
 public class PersonDaoImpl implements PersonDao {
 
-	@Autowired
+	//@Autowired
 	private JdbcTemplate jdbcTemplate;
 
 	public JdbcTemplate getJdbcTemplate() {
