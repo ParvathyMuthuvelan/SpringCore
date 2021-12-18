@@ -1,0 +1,45 @@
+<!-- Injecting Collections -->
+	<bean id="shapeCollection" class="com.beans.ShapeCollection">
+		<property name="shapeOfList">
+			<list>
+				<value>Triangle</value>
+				<value>Circle</value>
+				<value>Square</value>
+				<value>Rectangle</value>
+			</list>
+		</property>
+		<property name="shapeOfSet">
+			<set>
+				<value>Triangle</value>
+				<value>Circle</value>
+				<value>Square</value>
+				<value>Rectangle</value>
+			</set>
+		</property>
+		<property name="shapeOfMap">
+			<map>
+				<entry key="1" value="Triangle"></entry>
+				<entry key="2" value="Circle"></entry>
+				<entry key="3" value="Square"></entry>
+				<entry key="4" value="Rectangle"></entry>
+			</map>
+		</property>
+
+	</bean>
+
+
+
+
+
+	<!-- list of objects with setter injection -->
+	<bean id="student" class="com.beans.Student">
+		<property name="name" value="Jai" />
+		<property name="rollNo" value="MCA/07/06" />
+		<property name="className" value="MCA" />
+		<property name="address">
+			<list>
+				<ref bean="addressObj1" />
+				<ref bean="addressObj2" />
+			</list>
+		</property>
+	</bean>
