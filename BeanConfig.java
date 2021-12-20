@@ -1,8 +1,8 @@
 package com.annotation;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.io.ClassPathResource;
 
@@ -10,6 +10,9 @@ import org.springframework.core.io.ClassPathResource;
 
 @Configuration
 public class BeanConfig {
+	@Autowired
+	private Department dept;
+	
    @Bean(name = "helloBean") 
    //@Scope("prototype")
    public HelloWorld getHelloWorld(){
@@ -21,14 +24,20 @@ public class BeanConfig {
   // @Bean (name="emp")
    @Bean
    public Employee getEmployee(){
-      return new Employee();
+//	   Employee emp=new Employee();
+//	   emp.setId(1001);
+//	   emp.setName("A");
+//	   emp.setDepartment(dept);
+//	   return emp;
+     return new Employee(1001,"A",dept);
    }
    
    @Bean 
    public Department getDepartment(){
-	   Department dept=new Department("IT","ABC");
-	   //dept.setDepartmentName("IT");
-	  // dept.setManager("ABC");
+	  dept=new Department("IT","ABC");
+//	   dept=new Department();
+//	   dept.setDepartmentName("IT");
+//	   dept.setManager("ABC");
       return dept;
    }
    

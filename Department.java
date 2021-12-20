@@ -8,7 +8,6 @@ public class Department {
 	private String manager;
 	public Department() {}
 	public Department(String departmentName, String manager) {
-		super();
 		this.departmentName = departmentName;
 		this.manager = manager;
 	}
