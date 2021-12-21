@@ -2,6 +2,9 @@ package com.lifecycle;
 
 import java.util.Arrays;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
@@ -27,10 +30,12 @@ public class AwareBeanImpl implements ApplicationContextAware, BeanNameAware, Be
 		System.out.println("setApplicationContext:: Bean Definition Names= "
 				+ Arrays.toString(applicationContext.getBeanDefinitionNames()));
 	}
+	@PostConstruct
 	public void customInit()
 	{
 		System.out.println("custom Init method called");
 	}
+	@PreDestroy
 	public void destroy()
 	{
 		System.out.println("Destroy method called");
