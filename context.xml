@@ -1,22 +1,73 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans   
        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
         http://www.springframework.org/schema/context
            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-         
-     
-       <bean id="hello" class="com.beans.HelloWorld">
-     
-       </bean>
-     
-		
-	
-	
-		
-        
+
+
+	<bean id="hello" class="com.beans.HelloWorld">
+
+	</bean>
+
+	<bean id="user" class="com.beans.User">
+		<property name="name" value="Sri" />
+		<property name="age" value="25" />
+		<property name="country" value="India" />
+	</bean>
+
+	<bean id="user1" class="com.beans.User">
+		<property name="name" value="Sai" />
+		<property name="age" value="23" />
+		<property name="country" value="India" />
+	</bean>
+
+	<bean id="player" class="com.beans.Player">
+		<constructor-arg name="name" value="Dhoni" />
+		<constructor-arg name="skill" value="Batsman" />
+		<constructor-arg name="country" value="India" />
+	</bean>
+
+	<bean id="player1" class="com.beans.Player">
+		<constructor-arg name="name" value="Dhoni" />
+		<constructor-arg name="skill" value="Batsman" />
+
+	</bean>
+
+	<bean id="player2" class="com.beans.Player">
+		<constructor-arg index="0" value="Dhoni" />
+		<constructor-arg index="2" value="India" />
+		<constructor-arg index="1" value="Batsman" />
+	</bean>
+
+	<bean id="addressObj" class="com.beans.Address">
+		<property name="street" value="Netaji Street" />
+		<property name="city" value="Chennai" />
+		<property name="pinCode" value="603102" />
+	</bean>
+	<bean id="person" class="com.beans.Person">
+		<property name="name" value="Sai" />
+		<property name="address" ref="addressObj" />
+	</bean>
+
+	<bean id="emp" class="com.beans.Employee">
+		<property name="name" value="Sri" />
+		<property name="address" ref="addressObj" />
+	</bean>
+	<!-- setter injection -inner bean -->
+	<!-- <bean id="person" class="com.beans.Person"> <property name="name" value="Sai" 
+		/> <property name="address"> <bean id="addressObj" class="com.beans.Address"> 
+		<property name="street" value="Netaji Street" /> <property name="city" value="Chennai" 
+		/> <property name="pinCode" value="603102" /> </bean> </property> </bean> -->
+	<!-- cons injection - inner bean -->
+	<bean id="person1" class="com.beans.Person">
+		<constructor-arg name="name" value="Sai" />
+		<constructor-arg name="address" ref="addressObj" />
+
+	</bean>
+
 </beans>
 
 
